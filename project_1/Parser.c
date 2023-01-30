@@ -43,6 +43,7 @@ void loadInstructions(Instruction_Memory *i_mem, const char *trace)
 			strcmp(raw_instr, "addi") == 0)
 		{
 			parseIType(raw_inst, &(i_mem->instructions[IMEM_index]));
+			// test
 		}
 
         IMEM_index++;
