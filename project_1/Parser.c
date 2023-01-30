@@ -37,7 +37,13 @@ void loadInstructions(Instruction_Memory *i_mem, const char *trace)
         {
             parseRType(raw_instr, &(i_mem->instructions[IMEM_index]));
             i_mem->last = &(i_mem->instructions[IMEM_index]);
-	}
+		}
+
+		if (strcmp(raw_instr, "ld") == 0 ||
+			strcmp(raw_instr, "addi") == 0)
+		{
+			parseIType(raw_inst, &(i_mem->instructions[IMEM_index]));
+		}
 
         IMEM_index++;
         PC += 4;
