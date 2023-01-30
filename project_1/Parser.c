@@ -49,15 +49,50 @@ void loadInstructions(Instruction_Memory *i_mem, const char *trace)
 void parseRType(char *opr, Instruction *instr)
 {
     instr->instruction = 0;
-    unsigned opcode = 0;
+    unsigned opcode = 51; // the opcode for those commands are all 51
     unsigned funct3 = 0;
     unsigned funct7 = 0;
 
     if (strcmp(opr, "add") == 0)
     {
-        opcode = 51;
         funct3 = 0;
         funct7 = 0;
+    }
+
+    else if (strcmp(qpr,"sub") == 0)
+    {
+        funct3 = 0;
+        funct7 = 32;   
+    }
+
+    else if (strcmp(qpr,"sll") == 0)
+    {
+        funct3 = 1;
+        funct7 = 0;   
+    }
+
+    else if (strcmp(qpr,"srl") == 0)
+    {
+        funct3 = 5;
+        funct7 = 0;   
+    }
+
+    else if (strcmp(qpr,"xor") == 0)
+    {
+        funct3 = 1;
+        funct7 = 0;   
+    }
+
+    else if (strcmp(qpr,"or") == 0)
+    {
+        funct3 = 1;
+        funct7 = 0;   
+    }
+
+    else if (strcmp(qpr,"and") == 0)
+    {
+        funct3 = 1;
+        funct7 = 0;   
     }
 
     char *reg = strtok(NULL, ", ");
